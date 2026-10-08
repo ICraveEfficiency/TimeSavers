@@ -2,7 +2,19 @@
 
 This is a collection of scripts I have written with AI to fulfill functions that I found oddly lacking in various programs, websites, etc. 
 
-Use these with caution and at your own risk. **In the case of file management scripts, I recommend testing them on a folder with some example files first.** 
+Use these with caution and at your own risk. In the case of file management scripts, I recommend testing them on a folder with some example files first.
+
+**If you enjoy my work, consider becoming a sponsor!**
+
+
+# SATURNUS
+
+When placed inside the parent folder, the SATURNUS script will target all of its empty children. After the script receives explicit consent, it will begin its feast on the deepest children, before moving on to devour the shallowest, ensuring nothing is left behind. 
+
+The root folder containing the script is always left intact. The script is designed to be portable: it can be dropped into any folder and run there, with that folder becoming the root of the search. For example, placing the script in `C:\` allows it to search the entire system drive, while placing it in a specific folder limits its operation to that folder and everything beneath it.
+
+**SATURNUS permanently removes empty directories.** It does not delete files, does not move anything to the Windows Recycle Bin, and does not attempt to recover or otherwise modify the contents of non-empty folders.
+
 
 # OUT WITH THE OLD
 
