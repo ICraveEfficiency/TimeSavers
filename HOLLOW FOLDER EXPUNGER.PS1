@@ -939,10 +939,21 @@ try {
             $Desktop =
                 [Environment]::GetFolderPath("Desktop")
 
+            # ------------------------------------------------
+            # Human-readable, sortable Windows-safe filename.
+            #
+            # Example:
+            #
+            #   2026-10-07 23.14 HFE Cleaned.csv
+            # ------------------------------------------------
+
+            $timestamp =
+                Get-Date -Format "yyyy-MM-dd HH.mm"
+
             $LogFile =
                 Join-Path `
                     $Desktop `
-                    "RecycleBin_Empty_Items_Removed.csv"
+                    "$($timestamp) HFE Cleaned.csv"
 
             if ($log.Count -gt 0) {
 
@@ -1008,3 +1019,4 @@ catch {
 
     Wait-BeforeExit
 }
+
