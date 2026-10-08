@@ -36,3 +36,20 @@ You have the option to generate a CSV log containing the results of the cleanup.
 HOLLOW FOLDER EXPUNGER does not attempt to recover, restore, or inspect the contents of ordinary non-empty files. It is intended specifically for cleaning out zero-byte files and originally empty folders that have already been sent to the Windows Recycle Bin.
 
 
+# THE MIDDEN MINER
+
+This PowerShell utility helps you find and recover items from the Windows Recycle Bin. It examines the `$I` metadata records of the Windows Recycle Bin to determine each item's original path, original size, and deletion time, allowing deleted items to be identified and reconstructed according to their original filesystem locations.
+
+THE MIDDEN MINER offers several operating modes, including a **Scan Only** mode for reviewing and reporting Recycle Bin contents without changing anything, a **Scan and Recover** mode for recovering qualifying items, and a **Recover Using Previous Scan CSV** mode for carrying out a previously reviewed recovery without performing another full scan.
+
+The utility allows items to be filtered by **file type** and **deletion date range** before recovery. Supported categories include pictures, videos, audio files, text files, documents, and archives.
+
+Recovered files are placed in a newly created, timestamped `THE MIDDEN` folder on the user's Desktop. The original drive and directory structure are recreated within the recovery folder so that recovered files can be organized according to where they originally existed. Existing files are not overwritten; if a destination filename already exists, a unique filename is generated instead.
+
+Before any recovery takes place, the script displays the selected recovery criteria and requires explicit confirmation. During recovery, each item is revalidated against the current Recycle Bin contents and its `$I` metadata to help prevent stale, changed, or mismatched records from being recovered unintentionally.
+
+THE MIDDEN MINER can generate CSV reports containing the scan or recovery results. A scan CSV can subsequently be used as a recovery manifest, allowing a previously reviewed set of items to be recovered without repeating the original scan. Reports use timestamped filenames so that multiple scans and recovery operations can be retained separately for reference.
+
+THE MIDDEN MINER is **non-destructive to the Recycle Bin**. It copies qualifying items to the recovery location rather than permanently deleting them from the Recycle Bin. The original Recycle Bin contents remain available unless removed separately by another operation.
+
+The utility is intended specifically for recovering files that are still present in the Windows Recycle Bin. **It does not attempt to recover files that have already been permanently deleted from the Recycle Bin.**
